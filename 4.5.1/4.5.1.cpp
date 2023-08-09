@@ -52,7 +52,6 @@ int main() {
 	}
 	else {
 		if (doubl) {
-			double* arr = new double[counter];
 			std::string s;
 			std::vector  <double> v;
 			v.resize(counter);
@@ -74,7 +73,6 @@ int main() {
 			print(v);
 		}
 		else {
-			int* arr = new int[counter];
 			std::string s;
 			std::vector  <int> v;
 			v.resize(counter);
