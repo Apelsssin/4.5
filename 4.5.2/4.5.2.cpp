@@ -28,16 +28,16 @@ public:
         return arr[i];
     }
 
-    const T& operator[] (size_t i) const {
-        return **arr[i];
+    const T* operator[] ( size_t i) const {
+        return arr[i];
     }
-
-
-
 };
 int main()
 {
     auto test = Table <int>(2, 3);
     test[0][0]= 4;
-    std::cout << test[0][0]; // выводит 4
+    const Table<int> t1(2, 3);
+    //t1[0][0] = 4;
+    std::cout << test[0][0] << std::endl; // выводит 4
+    std::cout << t1[0][0];
 }

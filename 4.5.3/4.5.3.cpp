@@ -4,30 +4,30 @@
 #include <list>
 #include <algorithm>
 template <class T>
-class get_sum {
+class SumFunctor {
     T n;
 public:
-    get_sum() : n {0} { }
+    SumFunctor() : n {0} { }
     void operator() (auto it) {
         if (it % 3 == 0)
             n += it;
     }
-    T get_() {
+    T get_sum() {
         return n;
     };
 };
 
 
 template <class T>
-class get_count {
+class CountFuntor {
     int m;
 public:
-    get_count() : m{ 0 } { }
+    CountFuntor() : m{ 0 } { }
     void operator() (auto it) {
         if (it % 3 == 0)
                 ++m;
     }
-    int get_() {
+    int get_count() {
         return m;
     };
 };
@@ -45,11 +45,11 @@ int main()
     std::list v{ 4, 1, 3, 6, 25, 54 };
     std::cout << "[IN] :  ";
     print(v, v.size());
-    get_sum <int> x;
-    get_count <int> y;
+    SumFunctor <int> x;
+    CountFuntor <int> y;
     x = std::for_each(v.begin(), v.end(), x);
     y = std::for_each(v.begin(), v.end(), y);
 
-    std::cout << "[OUT] : get_sum() = " << x.get_() << std::endl;
-    std::cout << "[OUT] : get_count() = " << y.get_() << std::endl;
+    std::cout << "[OUT] : get_sum() = " << x.get_sum() << std::endl;
+    std::cout << "[OUT] : get_count() = " << y.get_count() << std::endl;
 }
