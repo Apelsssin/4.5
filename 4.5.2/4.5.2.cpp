@@ -32,10 +32,6 @@ public:
     }
 
     Table(const Table& arr2) {
-        for (int i = 0; i < cols; ++i) {
-            delete[] arr[i];
-        }
-        delete[] arr;
         rows = arr2.rows;
         cols = arr2.cols;
         arr = new T * [rows];
